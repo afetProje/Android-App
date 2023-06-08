@@ -8,15 +8,14 @@
 
     <EditText
         android:id="@+id/KullaniciAdText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="103dp"
-        android:layout_marginBottom="54dp"
+        android:layout_marginTop="82dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="Kullanıcı Adı"
         android:inputType="textPersonName"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/SifreText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,72 +23,59 @@
 
     <EditText
         android:id="@+id/SifreText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="97dp"
-        android:layout_marginEnd="105dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Şifre"
         android:inputType="textPassword"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/TelNoText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/KullaniciAdText" />
 
     <EditText
         android:id="@+id/TelNoText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="102dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="99dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="44dp"
         android:ems="10"
         android:hint="Telefon Numarası"
         android:inputType="phone"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/KayitButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SifreText" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:id="@+id/KayitButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="105dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="13dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="9dp"
         android:onClick="KayitOl"
         android:text="Kayıt Ol"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/TemizleButton"
+        app:layout_constraintEnd_toEndOf="@+id/TelNoText"
+        app:layout_constraintStart_toStartOf="@+id/TelNoText"
         app:layout_constraintTop_toBottomOf="@+id/TelNoText" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
+        android:id="@+id/TemizleButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="95dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="74dp"
         android:onClick="FormTemizle"
         android:text="Temizle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/TelNoText" />
-
-    <TextView
-        android:id="@+id/KayitGosterText"
-        android:layout_width="335dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="120dp"
-        android:hint="Kaydedilen Kullanıcı"
-        android:textAlignment="center"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/TelNoText"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/TelNoText"
+        app:layout_constraintTop_toBottomOf="@+id/KayitButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

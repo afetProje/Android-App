@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // EditText kontrolü yapan fonksiyon
-    private fun EditTextKontrol():Boolean{
+    fun EditTextKontrol():Boolean{
 
         val KullaniciAd = binding.editText.text.toString().trim()
         val KullaniciSifre = binding.editTextPassword.text.toString().trim()

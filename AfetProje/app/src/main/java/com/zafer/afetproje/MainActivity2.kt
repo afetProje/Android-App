@@ -22,6 +22,7 @@ class MainActivity2 : AppCompatActivity() {
 
         binding.YardimEtButton.setBackgroundColor(Color.BLUE)
         binding.YardimAlButton.setBackgroundColor(Color.RED)
+        binding.ListeleButton.setBackgroundColor(Color.YELLOW)
 
         binding.YardimEtButton.setOnClickListener {
 

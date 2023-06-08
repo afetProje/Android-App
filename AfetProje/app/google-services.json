@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "812703320667",
+    "project_id": "afetproje-8c20c",
+    "storage_bucket": "afetproje-8c20c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812703320667:android:4428f4b858c5207b334d7e",
+        "android_client_info": {
+          "package_name": "com.zafer.afetproje"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812703320667-pd8v7u2uqd9geb8ivs58a407dm76ot7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2-EIYj579lTihlSjomAQN5qFoY6O6tyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "812703320667-pd8v7u2uqd9geb8ivs58a407dm76ot7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

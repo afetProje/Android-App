@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.zafer.afetproje.databinding.ActivityMain2Binding
 import com.zafer.afetproje.databinding.ActivityMain3Binding
+import java.lang.Exception
 
 
 private lateinit var binding: ActivityMain2Binding
@@ -18,23 +19,38 @@ class MainActivity2 : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        Toast.makeText(this@MainActivity2,"Hos Geldiniz :)",Toast.LENGTH_LONG).show()
+        try {
 
-        binding.YardimEtButton.setBackgroundColor(Color.BLUE)
-        binding.YardimAlButton.setBackgroundColor(Color.RED)
-        binding.ListeleButton.setBackgroundColor(Color.YELLOW)
+            Toast.makeText(this@MainActivity2,"Hos Geldiniz :)",Toast.LENGTH_LONG).show()
 
-        binding.YardimEtButton.setOnClickListener {
+            binding.YardimEtButton.setBackgroundColor(Color.BLUE)
+            binding.YardimAlButton.setBackgroundColor(Color.RED)
+            binding.ListeleButton.setBackgroundColor(Color.YELLOW)
 
-            val intent2 = Intent(this,MainActivity3::class.java)
-            startActivity(intent2)
+            binding.YardimEtButton.setOnClickListener {
+
+                val intent = Intent(this,MainActivity3::class.java)
+                startActivity(intent)
+            }
+
+            binding.YardimAlButton.setOnClickListener {
+
+                val intent = Intent(this,MainActivity4::class.java)
+                startActivity(intent)
+            }
+
+            binding.ListeleButton.setOnClickListener {
+
+                val intent = Intent(this,YardimlariListele::class.java)
+                startActivity(intent)
+            }
+
+        }catch (e: Exception){
+
+            Toast.makeText(this,"Beklenmedik Bir HATA Oluştu !" + e.toString(),Toast.LENGTH_LONG).show()
+
         }
 
-        binding.YardimAlButton.setOnClickListener {
-
-            val intent3 = Intent(this,MainActivity4::class.java)
-            startActivity(intent3)
-        }
 
 
     }

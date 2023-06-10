@@ -11,12 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="Telefon Numaranız"
         android:inputType="phone"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/Spinner2"
+        app:layout_constraintBottom_toTopOf="@+id/YardimAlBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AdText" />
@@ -34,32 +33,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/YardimAlText" />
-
-    <Spinner
-        android:id="@+id/Spinner2"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/YardimAdetText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TelText" />
-
-    <EditText
-        android:id="@+id/YardimAdetText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:ems="10"
-        android:hint="Adet Giriniz"
-        android:inputType="number"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Spinner2" />
 
     <TextView
         android:id="@+id/YardimAlText"
@@ -80,11 +53,10 @@
         android:id="@+id/YardimAlBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
         android:layout_marginBottom="36dp"
         android:text="Yardım Al"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/YardimAdetText" />
+        app:layout_constraintTop_toBottomOf="@+id/TelText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

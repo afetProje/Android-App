@@ -1,36 +1,27 @@
 {
   "project_info": {
-    "project_number": "812703320667",
-    "project_id": "afetproje-8c20c",
-    "storage_bucket": "afetproje-8c20c.appspot.com"
+    "project_number": "993023489297",
+    "firebase_url": "https://disaster-ca430-default-rtdb.firebaseio.com",
+    "project_id": "disaster-ca430",
+    "storage_bucket": "disaster-ca430.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:812703320667:android:4428f4b858c5207b334d7e",
+        "mobilesdk_app_id": "1:993023489297:android:0ca385373e9a79110c48b0",
         "android_client_info": {
           "package_name": "com.zafer.afetproje"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "812703320667-pd8v7u2uqd9geb8ivs58a407dm76ot7a.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB2-EIYj579lTihlSjomAQN5qFoY6O6tyU"
+          "current_key": "AIzaSyD01VNwQL2P71_GCy8lIxxPeeYuaBMp7qo"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "812703320667-pd8v7u2uqd9geb8ivs58a407dm76ot7a.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

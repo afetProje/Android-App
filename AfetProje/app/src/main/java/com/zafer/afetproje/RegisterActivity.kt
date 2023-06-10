@@ -1,15 +1,15 @@
 package com.zafer.afetproje
 
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
-import androidx.core.text.set
+import com.google.firebase.auth.FirebaseAuth
 import com.zafer.afetproje.databinding.ActivityRegisterBinding
+import java.lang.Exception
 
-private lateinit var binding:ActivityRegisterBinding
+private lateinit var binding: ActivityRegisterBinding
+private lateinit var auth: FirebaseAuth
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,42 +17,51 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        auth = FirebaseAuth.getInstance()       // FireBase Authentication İşlemleri İçin Bir Nesne Türettik.
 
-        binding.KayitButton.setOnClickListener {
+        try {
 
-            if (EditTextKontrol()){
+            val SinifNesne = Fonksiyonlar(binding)  //Fonksiyonlar Sınıfından Nesne Türettik.
 
-                val intent = Intent(this,MainActivity::class.java)
-                startActivity(intent)
-                Toast.makeText(this,"Başarıyla Kayıt Oldunuz :)",Toast.LENGTH_LONG).show()
-            }else{
+            binding.KayitButton.setOnClickListener { // Kayıt Ol Butonuna Tıklandığında Yapılacak İşlemler
 
-                Toast.makeText(this,"Lütfen İstenilen Değerleri Giriniz !",Toast.LENGTH_LONG).show()
+                val KullMail = binding.MailText.text.toString()
+                val KullSifre = binding.SifreText.text.toString()
+                val Kontrol = SinifNesne.EditTextKontrol(KullMail,KullSifre)
+
+                if (Kontrol) {
+
+                    auth.createUserWithEmailAndPassword(KullMail,KullSifre).addOnSuccessListener { // Verilen Parametrelerle Kullanıcı Oluşturuldu.
+
+                        // Kayıt İşlemi Bittikten Sonra MainActivity, Yani Giriş Sayfasına Yönlendirildi.
+                        val intent = Intent(this, MainActivity::class.java)                       // Giriş Sayfasına Yönlendirme İşlemi.
+                        startActivity(intent)
+                        Toast.makeText(this, "Başarıyla Kayıt Oldunuz :)", Toast.LENGTH_LONG).show()  // Ekranın Altında Çıkan Bildirim mesajı.
+                        finish()
+
+                    }.addOnFailureListener {
+                        Toast.makeText(this,it.localizedMessage, Toast.LENGTH_LONG).show()  // Kayıt Ekleme İşlemi Başarısızsa Çalışacak.
+
+                    }
+
+
+                } else {
+                    // Textler Boş İse Verilecek Hata Bildirimi.
+                    Toast.makeText(this, "Lütfen İstenilen Değerleri Giriniz !", Toast.LENGTH_LONG).show()
+                }
             }
+
+            binding.TemizleButton.setOnClickListener {
+
+                SinifNesne.Temizle(binding.MailText,binding.SifreText)
+            }
+
+        }catch (e: Exception){
+
+            Toast.makeText(this, "Beklenmedik Bir Hata Oluştu !" + e.toString(), Toast.LENGTH_LONG).show()
+
         }
 
-        binding.TemizleButton.setOnClickListener {
-
-            Temizle()
-        }
-
-
     }
+}
 
-    private fun EditTextKontrol():Boolean{
-
-        val KullaniciAd = binding.KullaniciAdText.text.toString().trim()
-        val KullaniciSifre = binding.SifreText.text.toString().trim()
-        val KullaniciTel = binding.TelNoText.text.toString().trim()
-
-        return KullaniciAd.isNotEmpty() && KullaniciSifre.isNotEmpty() && KullaniciTel.isNotEmpty()
-    }
-
-    private fun Temizle(){
-
-        binding.KullaniciAdText.setText("")
-        binding.SifreText.setText("")
-        binding.TelNoText.setText("")
-    }
-
- }

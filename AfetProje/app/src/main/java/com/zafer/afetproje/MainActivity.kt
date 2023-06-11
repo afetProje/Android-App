@@ -1,7 +1,6 @@
 package com.zafer.afetproje
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
@@ -14,6 +13,7 @@ import java.lang.Exception
 
 private lateinit var binding: ActivityMainBinding
 private lateinit var auth: FirebaseAuth
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +29,10 @@ class MainActivity : AppCompatActivity() {
             // Arkaplan ve Buton Renklendirmesi...
             val myLayout: ConstraintLayout = findViewById(R.id.MyLayout)
             val btn = binding.GirisButton
+            val txt1 = binding.EmailText
+            val txt2 = binding.PassText
 
-            SinifNesne.Renklendir(btn,myLayout)
+            SinifNesne.Renklendir(btn,myLayout, txt1, txt2)
 
             // Buton'a tıklandığında yapılacak işlemler...
             binding.GirisButton.setOnClickListener {
@@ -52,8 +54,10 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this,it.localizedMessage,Toast.LENGTH_LONG).show()
                     }
 
-
                 }else{
+
+                    txt1.error = "Lütfen Boş Bırakmayınız !"
+                    txt2.error = "Lütfen Boş Bırakmayınız !"
 
                     Toast.makeText(this,"Kullanıcı Adı Veya Şifre Boş Bırakılamaz !",Toast.LENGTH_LONG).show()
                 }

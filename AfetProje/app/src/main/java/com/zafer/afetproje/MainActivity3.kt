@@ -6,9 +6,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.firebase.firestore.FirebaseFirestore
 import com.zafer.afetproje.databinding.ActivityMain3Binding
+import com.zafer.afetproje.databinding.ActivityRegisterBinding
 import java.lang.Exception
+import java.util.UUID
 
 private lateinit var binding: ActivityMain3Binding
 
@@ -16,7 +19,6 @@ class MainActivity3 : AppCompatActivity() {
     private lateinit var binding: ActivityMain3Binding
     private lateinit var spinner: Spinner
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMain3Binding.inflate(layoutInflater)
@@ -24,6 +26,14 @@ class MainActivity3 : AppCompatActivity() {
         setContentView(view)
 
         try {
+
+            val ad = binding.KullAdText
+            val tel = binding.KullTelText                   // Arayüzdeki bileşenler id'leri üzerinden değişkenlere atandı.
+            val btn = binding.YardimButton
+            val sinifNesne = Fonksiyonlar(ActivityRegisterBinding.inflate(layoutInflater))   // Sınıftan nesne türetildi.
+            val myLayout : ConstraintLayout = findViewById(R.id.MyLayout3)
+
+            sinifNesne.Renklendir(btn,myLayout,ad,tel)
 
             spinner = findViewById(R.id.Spinner)  // Spinner id'si alındı.
             val spinnerData = arrayOf("Ayakkabı", "Pantolon", "Şapka", "Bere", "Yorgan", "Yastık")  // spinner'de gözükecek veriler girildi.
@@ -45,16 +55,20 @@ class MainActivity3 : AppCompatActivity() {
         return Kullanici_Ad.isNotEmpty() && Kullanici_Tel.isNotEmpty() && Urun_Adet.isNotEmpty()
     }
 
-    fun FireStoreKaydet(urun: String, kulAd: String, kulTel: String, urunAdet: String) {  // Firestore Kayıt İşlemleri..
+    fun FireStoreKaydet(name: String, phone: String, need: String, piece: String) {  // Firestore Kayıt İşlemleri..
 
+        val helpID = UUID.randomUUID().toString()
         val data = hashMapOf(
-            "Urun" to urun,
-            "Kullanici-Adi" to kulAd,
-            "Kullanici-Tel" to kulTel,
-            "Urun-Adet" to urunAdet
+            "name" to name,
+            "phone" to phone,
+            "need" to need,
+            "piece" to piece,
+            "helpID" to helpID
         )
 
-        firestore.collection("Yardimlar").add(data)
+
+        firestore.collection("helps").document("ongoing_need").collection("helps").document(helpID).set(data)
+
 
             .addOnSuccessListener {
                 Toast.makeText(applicationContext, "Yardımınız Kaydedildi, Teşekkürler :)", Toast.LENGTH_SHORT).show()
@@ -74,16 +88,19 @@ class MainActivity3 : AppCompatActivity() {
 
         if (EditTextKontrol(kullaniciAd, kullaniciTel, kullaniciAdet)) {
 
-            FireStoreKaydet(secilenUrun, kullaniciAd, kullaniciTel, kullaniciAdet) // Firestore'a kaydetme fonksiyonuna gönderiliyor.
+            FireStoreKaydet(kullaniciAd,kullaniciTel,secilenUrun,kullaniciAdet) // Firestore'a kaydetme fonksiyonuna gönderiliyor.
 
         }else{
-
+            binding.KullAdText.error = "Lütfen Boş Bırakmayınız !"
+            binding.KullTelText.error = "Lütfen Boş Bırakmayınız !"
+            binding.AdetText.error = "Lütfen Boş Bırakmayınız !"
             Toast.makeText(this, "Lütfen Boş Bırakmayınız!", Toast.LENGTH_LONG).show() // Text alanları boşsa...
 
         }
 
     }
 }
+
 
 
 

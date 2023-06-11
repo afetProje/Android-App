@@ -20,7 +20,8 @@ class YardimlariListele : AppCompatActivity() {
         try {
 
             val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-            val collectionRef = firestore.collection("Yardimlar")
+                val collectionRef = firestore.collection("helps").document("ongoing_need").collection("helps")
+
 
             collectionRef.get()
 
@@ -29,12 +30,12 @@ class YardimlariListele : AppCompatActivity() {
 
                     for (document in snapshot.documents) {
 
-                        val urun = document.getString("Urun")
-                        val urunAdet = document.getString("Urun-Adet")
+                        val urun = document.getString("name")
+                        val urunAdet = document.getString("piece")
 
                         if (urun != null && urunAdet != null) {
 
-                            val productInfo = "Ürün: $urun\nAdet: $urunAdet"
+                            val productInfo = "Ürün: $urun\nAdet: $urunAdet\n"
                             productList.add(productInfo)
                         }
                     }

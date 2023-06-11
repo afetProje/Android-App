@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.zafer.afetproje.databinding.ActivityRegisterBinding
 import java.lang.Exception
@@ -22,6 +23,14 @@ class RegisterActivity : AppCompatActivity() {
         try {
 
             val SinifNesne = Fonksiyonlar(binding)  //Fonksiyonlar Sınıfından Nesne Türettik.
+            val myLayout: ConstraintLayout = findViewById(R.id.MyLayout2)
+            val txt1 = binding.MailText             // Arayüzdeki bileşenlerin id'leri değişkenlere atandı.
+            val txt2 = binding.SifreText
+            val btn = binding.KayitButton
+            val temizleBtn = binding.TemizleButton
+
+            SinifNesne.Renklendir(btn,myLayout,txt1,txt2)   // Değişkenler sınıf içerisindeki fonksiyonlara gönderildi.
+            SinifNesne.temizleBtnSekil(temizleBtn)
 
             binding.KayitButton.setOnClickListener { // Kayıt Ol Butonuna Tıklandığında Yapılacak İşlemler
 
@@ -47,6 +56,8 @@ class RegisterActivity : AppCompatActivity() {
 
                 } else {
                     // Textler Boş İse Verilecek Hata Bildirimi.
+                    txt1.error = "Lütfen Boş Bırakmayınız !"
+                    txt2.error = "Lütfen Boş Bırakmayınız !"
                     Toast.makeText(this, "Lütfen İstenilen Değerleri Giriniz !", Toast.LENGTH_LONG).show()
                 }
             }

@@ -27,8 +27,9 @@ class MainActivity2 : AppCompatActivity() {
             val btn = binding.YardimEtButton
             val btn2 = binding.YardimAlButton
             val btn3 = binding.ListeleButton
+            val btn4 = binding.CikisButton
 
-            sinifNesne.YardimBtnRenk(btn,btn2,btn3)
+            sinifNesne.YardimBtnRenk(btn,btn2,btn3,btn4)
 
             Toast.makeText(this,"Hos Geldiniz :)",Toast.LENGTH_LONG).show()
 
@@ -48,6 +49,13 @@ class MainActivity2 : AppCompatActivity() {
             binding.ListeleButton.setOnClickListener {
 
                 val intent = Intent(this,YardimlariListele::class.java)
+                startActivity(intent)
+            }
+
+            binding.CikisButton.setOnClickListener {
+
+                Toast.makeText(this,"Çıkış Yapıldı. Hoşça Kalın :)",Toast.LENGTH_LONG).show()
+                val intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
             }
 

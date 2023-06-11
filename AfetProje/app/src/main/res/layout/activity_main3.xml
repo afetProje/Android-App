@@ -2,15 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MyLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity3">
 
     <EditText
         android:id="@+id/KullAdText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="33dp"
         android:ems="10"
         android:gravity="end"
         android:hint="Adınız"
@@ -19,29 +20,27 @@
         app:layout_constraintBottom_toTopOf="@+id/KullTelText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
         android:id="@+id/AdetText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="138dp"
+        android:layout_marginBottom="42dp"
         android:ems="10"
         android:hint="Adet Giriniz"
         android:inputType="number"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/YardimButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Spinner" />
 
     <Spinner
         android:id="@+id/Spinner"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="48dp"
         android:spinnerMode="dropdown"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/AdetText"
@@ -51,10 +50,9 @@
 
     <EditText
         android:id="@+id/KullTelText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="33dp"
         android:ems="10"
         android:hint="Telefon Numaranız"
         android:inputType="phone"
@@ -64,31 +62,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/KullAdText" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="154dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="154dp"
-        android:layout_marginBottom="88dp"
-        android:text="Yardım Et"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/KullAdText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/YardimButton"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="39dp"
         android:text="Yardım Et"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AdetText" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="223dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="59dp"
+        app:layout_constraintBottom_toTopOf="@+id/KullAdText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,46 +8,64 @@
 
     <Button
         android:id="@+id/ListeleButton"
-        android:layout_width="match_parent"
-        android:layout_height="158dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="46dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="17dp"
         android:text="Yardımları Listele"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/CikisButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/YardimAlButton" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <Button
         android:id="@+id/YardimEtButton"
-        android:layout_width="match_parent"
-        android:layout_height="158dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="1dp"
         android:text="Yardım Et"
-        app:layout_constraintBottom_toTopOf="@+id/YardimAlButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/YardimAlButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/YardimAlButton"
-        android:layout_width="match_parent"
-        android:layout_height="158dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="27dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
         android:text="Yardım Al"
+        app:layout_constraintBottom_toBottomOf="@+id/YardimEtButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/YardimEtButton"
+        app:layout_constraintTop_toTopOf="@+id/YardimEtButton" />
+
+    <Button
+        android:id="@+id/CikisButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:text="Çıkış Yap"
+        app:layout_constraintBottom_toBottomOf="@+id/ListeleButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ListeleButton"
+        app:layout_constraintTop_toTopOf="@+id/ListeleButton" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="396dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toTopOf="@+id/ListeleButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/YardimEtButton" />
+        app:layout_constraintTop_toBottomOf="@+id/YardimEtButton"
+        app:srcCompat="@drawable/img3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

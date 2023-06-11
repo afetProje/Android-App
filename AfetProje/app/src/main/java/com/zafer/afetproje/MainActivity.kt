@@ -1,10 +1,12 @@
 package com.zafer.afetproje
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.zafer.afetproje.databinding.ActivityMainBinding
 import com.zafer.afetproje.databinding.ActivityRegisterBinding
@@ -23,6 +25,12 @@ class MainActivity : AppCompatActivity() {
         try {
 
             val SinifNesne = Fonksiyonlar(ActivityRegisterBinding.inflate(layoutInflater))  // Fonksiyonlar Sınıfından Nesne Türettik.
+
+            // Arkaplan ve Buton Renklendirmesi...
+            val myLayout: ConstraintLayout = findViewById(R.id.MyLayout)
+            val btn = binding.GirisButton
+
+            SinifNesne.Renklendir(btn,myLayout)
 
             // Buton'a tıklandığında yapılacak işlemler...
             binding.GirisButton.setOnClickListener {

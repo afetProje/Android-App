@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.zafer.afetproje.databinding.ActivityMain2Binding
 import com.zafer.afetproje.databinding.ActivityMain3Binding
+import com.zafer.afetproje.databinding.ActivityRegisterBinding
 import java.lang.Exception
 
 
@@ -21,11 +22,16 @@ class MainActivity2 : AppCompatActivity() {
 
         try {
 
-            Toast.makeText(this@MainActivity2,"Hos Geldiniz :)",Toast.LENGTH_LONG).show()
+            val sinifNesne = Fonksiyonlar(ActivityRegisterBinding.inflate(layoutInflater))
 
-            binding.YardimEtButton.setBackgroundColor(Color.BLUE)
-            binding.YardimAlButton.setBackgroundColor(Color.RED)
-            binding.ListeleButton.setBackgroundColor(Color.YELLOW)
+            val btn = binding.YardimEtButton
+            val btn2 = binding.YardimAlButton
+            val btn3 = binding.ListeleButton
+
+            sinifNesne.YardimBtnRenk(btn,btn2,btn3)
+
+            Toast.makeText(this,"Hos Geldiniz :)",Toast.LENGTH_LONG).show()
+
 
             binding.YardimEtButton.setOnClickListener {
 

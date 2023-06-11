@@ -3,10 +3,8 @@ package com.zafer.afetproje
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import com.zafer.afetproje.databinding.ActivityYardimlariListeleBinding
 import java.lang.Exception
 
@@ -21,45 +19,36 @@ class YardimlariListele : AppCompatActivity() {
 
         try {
 
-            val database = FirebaseDatabase.getInstance()
-            val reference = database.getReference("Yardimlar")
+            val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+            val collectionRef = firestore.collection("Yardimlar")
 
-            reference.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
+            collectionRef.get()
 
+                .addOnSuccessListener { snapshot: QuerySnapshot ->
                     val productList = mutableListOf<String>()
 
-                    for (shot in snapshot.children) {
+                    for (document in snapshot.documents) {
 
-                        val urun = shot.child("Urun").value
-                        val urunAdet = shot.child("Urun-Adet").value
+                        val urun = document.getString("Urun")
+                        val urunAdet = document.getString("Urun-Adet")
 
-                        if (urunAdet != null) {
+                        if (urun != null && urunAdet != null) {
 
-                            val productInfo = "Ürün: ${urun}\n Adet: ${urunAdet}"
+                            val productInfo = "Ürün: $urun\nAdet: $urunAdet"
                             productList.add(productInfo)
                         }
-
                     }
 
                     val productListString = productList.joinToString("\n")
                     binding.UrunText.text = productListString
                 }
+                .addOnFailureListener { exception: Exception ->
 
-                override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(applicationContext, "!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Hata: $exception", Toast.LENGTH_SHORT).show()
                 }
-
-            })
         } catch (e: Exception) {
 
-            Toast.makeText(
-                applicationContext,
-                "Beklenmedik Bir HATA Oluştu! " + e.toString(),
-                Toast.LENGTH_LONG
-            ).show()
+            Toast.makeText(applicationContext, "Beklenmedik Bir HATA Oluştu! $e", Toast.LENGTH_LONG).show()
         }
-
     }
-
 }

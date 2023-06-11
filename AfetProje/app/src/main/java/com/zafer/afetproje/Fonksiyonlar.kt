@@ -1,6 +1,10 @@
 package com.zafer.afetproje
 
+import android.graphics.Color
+import android.widget.Button
 import android.widget.EditText
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet.Constraint
 import com.zafer.afetproje.databinding.ActivityRegisterBinding
 import org.mindrot.jbcrypt.BCrypt
 
@@ -24,6 +28,22 @@ class Fonksiyonlar(private val binding: ActivityRegisterBinding) {
 
         val salt = BCrypt.gensalt()
         return BCrypt.hashpw(password, salt)
+    }
+
+    // Butonlar ve Arkaplan Renklendirme Fonksiyonu
+    fun Renklendir(btn: Button, layout: ConstraintLayout){
+
+        btn.setBackgroundColor(Color.parseColor("#3F4E4F"))
+        layout.setBackgroundColor(Color.parseColor("#F3EFE8"))
+
+    }
+
+    fun YardimBtnRenk(yardimEt: Button, yardimAl : Button, yardimListele : Button){
+
+        yardimEt.setBackgroundColor(Color.parseColor("#E3CAA5"))
+        yardimAl.setBackgroundColor(Color.parseColor("#CEAB93"))
+        yardimListele.setBackgroundColor(Color.parseColor("#BC9D86"))
+
     }
 
 }

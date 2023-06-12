@@ -1,8 +1,10 @@
 package com.zafer.afetproje
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import com.zafer.afetproje.databinding.ActivityYardimlariListeleBinding
@@ -18,6 +20,9 @@ class YardimlariListele : AppCompatActivity() {
         setContentView(view)
 
         try {
+
+            val myLayout: ConstraintLayout = findViewById(R.id.MyLayout6)
+            myLayout.setBackgroundColor(Color.parseColor("#F3EFE8"))
 
             val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
                 val collectionRef = firestore.collection("helps").document("ongoing_need").collection("helps")

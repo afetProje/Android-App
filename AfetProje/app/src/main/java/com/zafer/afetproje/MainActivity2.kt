@@ -5,6 +5,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.zafer.afetproje.databinding.ActivityMain2Binding
 import com.zafer.afetproje.databinding.ActivityMain3Binding
 import com.zafer.afetproje.databinding.ActivityRegisterBinding
@@ -23,6 +24,8 @@ class MainActivity2 : AppCompatActivity() {
         try {
 
             val sinifNesne = Fonksiyonlar(ActivityRegisterBinding.inflate(layoutInflater))
+            val myLayout: ConstraintLayout = findViewById(R.id.MyLayout5)
+            myLayout.setBackgroundColor(Color.parseColor("#F3EFE8"))
 
             val btn = binding.YardimEtButton
             val btn2 = binding.YardimAlButton

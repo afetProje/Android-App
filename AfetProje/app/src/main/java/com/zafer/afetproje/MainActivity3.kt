@@ -31,7 +31,7 @@ class MainActivity3 : AppCompatActivity() {
             val tel = binding.KullTelText                   // Arayüzdeki bileşenler id'leri üzerinden değişkenlere atandı.
             val btn = binding.YardimButton
             val sinifNesne = Fonksiyonlar(ActivityRegisterBinding.inflate(layoutInflater))   // Sınıftan nesne türetildi.
-            val myLayout : ConstraintLayout = findViewById(R.id.MyLayout3)
+            val myLayout : ConstraintLayout = findViewById(R.id.MyLayout5)
 
             sinifNesne.Renklendir(btn,myLayout,ad,tel)
 
